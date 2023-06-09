@@ -6,6 +6,9 @@ String Manipulations
 4. Implement an algorithm to determine if a string has all unique characters.
 5. Given two strings, write a method to decide if one is permutation of other
 6. Check if given string is palindrome permutation
+7. One Away: There are three types of edits that can be performed on strings: insert a character,
+    remove a character, or replace a character. Given two strings, write a function to check if they are
+    one edit (or zero edits) away.
 """
 import re
 from collections import Counter
@@ -80,22 +83,29 @@ class StringManipulationClass():
             return "Yes, Its palindrome Permutation"
         return "No, Its Not palindrome Permutation"
 
-
-if __name__=="__main__":
-    obj = StringManipulationClass()
-    # print("========== Pandrome Check ===========")    
-    # print (obj.checkIfPalindromeUsingExtendedSlicing("racecar"))
-    # print (obj.checkIfPalindromeUsingExtendedSlicing("Able was I saw Elba"))
-    # print (obj.checkIfPalindromeUsingExtendedSlicing("heathly"))
-    # print (obj.checkIfPalindromeUsingExtendedSlicing("Atul chaudhari"))
-    # print("=======================================")
-    # print (obj.checkPalindrome("racecar"))
-    # print (obj.checkPalindrome("Able was I saw Elba"))
-    # print (obj.checkPalindrome("heathly"))
-    # print (obj.checkPalindrome("Atul chaudhari"))
-    # print("=================remove special characters==========")
-    # print(obj.removeSpecialCharactersFromString("apples are & found% ony @red & green"))
-    # print(obj.removeSpecialCharactersFromStringUsingRegularExpression("apples are & found% ony @red & green"))
-    # print("==========Reverse the Sentence============")
-    # print(obj.rearrangeSentenceInReverceOrderOfWords("Sky Is Blue"))
-
+    # Solution for 7
+    def checkIfOneEditAway(input_string1, input_string2):
+        first_string_length = len(input_string1)
+        second_string_length = len(input_string2)
+        if abs(second_string_length-first_string_length) > 1:
+            return False
+        pointer1 = 0
+        pointer2 = 0
+        changeDetected = False
+        while pointer1 < first_string_length and pointer2 < second_string_length:
+            if input_string1[pointer1] != input_string2[pointer2]:
+                if changeDetected:
+                    return False
+                changeDetected = True 
+                if first_string_length > second_string_length:
+                    pointer1 += 1                
+                elif first_string_length < second_string_length:
+                    pointer2 += 1
+                else:
+                    pointer1 = pointer1 + 1
+                    pointer2 = pointer2 + 1           
+            else:
+                    pointer1 = pointer1 + 1
+                    pointer2 = pointer2 + 1  
+        return True
+            
