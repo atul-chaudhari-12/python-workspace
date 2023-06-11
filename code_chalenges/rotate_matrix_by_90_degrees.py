@@ -3,7 +3,7 @@
 """
 import copy
 class RotateMatrix90Degrees:    
-    def bruteForceCockwise(input_matrix, n):
+    def bruteForceCockwise(self, input_matrix, n):
         """
         time complexity: O(n2)
         Space Complexity: O(n2)
@@ -14,7 +14,7 @@ class RotateMatrix90Degrees:
                 temp_matrix[col_num][n-1-row_num] = input_matrix[row_num][col_num]
         return temp_matrix
     
-    def layerwiseRoatation(input_matrix, n):   
+    def layerwiseRoatation(self, input_matrix, n):   
         """
         time complexity: O(n2)
         Space Complexity: O(1)
@@ -29,7 +29,7 @@ class RotateMatrix90Degrees:
                 input_matrix[j][n - 1 - i] = temp
         return input_matrix
     
-    def layerwiseAnticlockwiseRoation(input_matrix, n):
+    def layerwiseAnticlockwiseRoation(self, input_matrix, n):
         """
         time complexity: O(n2)
         Space Complexity: O(1)
