@@ -84,7 +84,7 @@ Examples:
     Explanation: There are only two unique characters, thus show error message. 
 """
 class Solution(object):
-    def lengthOfLongestSubstringWithKUniqueCharacters(s, k):
+    def lengthOfLongestSubstringWithKUniqueCharacters(self, s, k):
         start_index = 0
         end_index = 0
         string_length = len(s)
