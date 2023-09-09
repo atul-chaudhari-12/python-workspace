@@ -55,7 +55,31 @@ class Solution(object):
                     substring_set.clear()
                     i = i - length + 1
                     length = 0
-        return max(max_length, length)    
+        return max(max_length, length)   
+
+    def lengthOfLongestSubstring2(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        string_len = len(s)
+        length = 0
+        max_length = 0
+        char_map = {}        
+        start_index = 0
+        end_index = 0
+
+        while end_index < string_len:
+            char = s[end_index]
+            if char in char_map and char_map[char] >= start_index:
+              start_index = char_map[char] + 1
+            else:
+                max_length = max(max_length, end_index-start_index + 1)
+            
+            char_map[char] = end_index
+            end_index += 1
+        
+        return max_length 
 
 
 # Challenge 2
