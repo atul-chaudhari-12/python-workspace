@@ -7,8 +7,6 @@ The store sells baskets of k distinct candies. The tastiness of a candy basket i
 
 Return the maximum tastiness of a candy basket.
 
- 
-
 Example 1:
 
 Input: price = [13,5,1,8,21,2], k = 3
